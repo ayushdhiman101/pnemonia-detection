@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pneumonia Detection</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            color: #737373;
+            font-family: "Google Sans", Roboto, Arial, sans-serif !important;
+            font-family: Montserrat, sans-serif !important;
+            font-style: normal;
+            overflow-x: hidden;
+            overflow-y: overlay;
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+        }
+        /*font-family: "Open Sans", sans-serif !important;*/
+        
+         ::-webkit-scrollbar {
+            width: 0;
+            /* Remove scrollbar space */
+            background: transparent;
+        }
+        /* width */
+        
+         ::-webkit-scrollbar {
+            width: 10px;
+        }
+        /* Track */
+        
+         ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        /* Handle */
+        
+         ::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background: #888;
+        }
+        /* Handle on hover */
+        
+         ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .align-items-center {
+            align-items: center;
+        }
+        
+        .totally-center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        /* Add a black background color to the top navigation */
+        
+        .topnav {
+            position: sticky;
+            top: 0;
+            background-color: transparent;
+            overflow: hidden;
+            width: 100%;
+            height: 10%;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+        /* Style the links inside the navigation bar */
+        
+        .topnav a {
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bolder;
+        }
+        /* Change the color of links on hover */
+        
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        /* Add a color to the active/current link */
+        
+        .topnav a.active {
+            background-color: #04aa6d;
+            color: white;
+        }
+        
+        .banner-container {
+            width: 100%;
+            height: 90%;
+            padding: 5%;
+            box-sizing: border-box;
+            background-color: lightgreen;
+        }
+        
+        .banner-container .banner {
+            width: 100%;
+            height: 100%;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            background-color: white;
+            border-radius: 10px;
+            align-items: center;
+            background: rgb(148, 187, 233);
+            background: linear-gradient( 90deg, rgba(148, 187, 233, 1) 0%, rgba(148, 233, 205, 1) 100%);
+        }
+        
+        .banner-container .banner .part1 {
+            height: 100%;
+            width: 50%;
+            border-radius: inherit;
+            padding: 2%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        
+        .banner-container .banner .part1 .data-contain {
+            padding-left: 10%;
+            box-sizing: border-box;
+            color: black;
+            font-weight: bolder;
+        }
+        
+        .banner-container .banner .part1 .data-contain h4 {
+            margin: 5px 0;
+        }
+        
+        .banner-container .banner .part1 .data-contain .form-button {
+            margin-top: 1%;
+            padding: 3%;
+            background-color: #04aa6d;
+            text-decoration: none;
+            font-size: 100%;
+            box-sizing: border-box;
+            width: fit-content;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .banner-container .banner .part2 {
+            height: 100%;
+            width: 50%;
+            border-radius: inherit;
+            padding: 2%;
+            box-sizing: border-box;
+        }
+        
+        .banner-container .banner .part2 img {
+            height: 100%;
+            width: 100%;
+            border-radius: inherit;
+        }
+        
+        .form-container {
+            width: 100%;
+            height: 90%;
+            padding: 5%;
+            box-sizing: border-box;
+            background-color: lightgreen;
+        }
+        
+        .form-container .sub-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            background-color: white;
+            align-items: center;
+            background: rgb(148, 187, 233);
+            background: linear-gradient( 90deg, rgba(148, 187, 233, 1) 0%, rgba(148, 233, 205, 1) 100%);
+        }
+        
+        .form-container .sub-container .form-data {
+            height: 100%;
+            width: 50%;
+            box-sizing: border-box;
+            padding: 5%;
+        }
+        
+        .form-container .sub-container .form-data li {
+            color: black;
+            font-size: 120%;
+            margin: 2% 0;
+            font-weight: bold;
+        }
+        
+        .form-container .sub-container .form {
+            height: 100%;
+            width: 50%;
+            padding: 5%;
+            box-sizing: border-box;
+            align-items: center;
+        }
+        
+        .form-container .sub-container .form form {
+            width: 80%;
+            height: 100%;
+            overflow: scroll;
+        }
+        
+        .form-container .sub-container .form form input {
+            padding: 4%;
+            width: 80%;
+            margin: 2% 0;
+            border: 0;
+            border-radius: 5px;
+        }
+        
+        .form-container .sub-container .form form input[type="submit"] {
+            background-color: #04aa6d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav flex-row">
+        <a href="#home">Home</a>
+        <a href="#input-form">Pneumonia Detection</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>
+
+
+    <div class="banner-container">
+        <div class="banner flex-row">
+            <div class="part1 flex-col">
+                <div class="data-contain flex-col vertical-center">
+                    <h1>
+                        Pneumonia Detection result:
+                    </h1>
+                    <h4 style="color: red"></h4>
+                    <h4 style="color: green">
+                    </h4>
+                    <!-- <a class="form-button" href="#input-form"></a> -->
+
+                    {% if pred == "1" %}
+                    <h4 style="color: red">Pneumonia detected !!!</h4>
+                    {% elif pred == "0" %}
+                    <h4 style="color: green">Pneumonia not detected :)))))</h4>
+                    {% else %} Fill the details again {% endif %}
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
