@@ -37,7 +37,7 @@ CNN-based deep learning algorithms have become the go-to resource for medical im
 
 
 
-#5Implementation of System
+# 5Implementation of System
 ![image](https://user-images.githubusercontent.com/61506157/176119783-55b64201-d605-4549-873b-3450a874f8fd.png)
 
 
