@@ -37,16 +37,18 @@ CNN-based deep learning algorithms have become the go-to resource for medical im
 
 
 
-5	Implementation of System
+#5	Implementation of System
+![image](https://user-images.githubusercontent.com/61506157/176119783-55b64201-d605-4549-873b-3450a874f8fd.png)
 
 
-5.1 DOCTORS METHODOLOGY: 
+
+*5.1 DOCTORS METHODOLOGY: 
 
             The project’s primary doctor will begin by asking the user about their medical history and symptoms. User will also undergo a physical exam, so that your doctor can listen to your lungs. In checking for pneumonia, the doctor will listen for abnormal sounds like crackling, rumbling or wheezing. If the doctor thinks user might have pneumonia, an imaging test may be performed to confirm the diagnosis. One or more of the following tests may be ordered to evaluate for pneumonia: Chest x-ray: An x-ray exam will allow the doctor to see user’s lungs, heart and blood vessels to help determine if user has pneumonia. When interpreting the x-ray, the radiologist will look for white spots in the lungs (called infiltrates) that identify an infection. This exam will also help determine if user has any complications related to pneumonia such as abscesses or pleural effusions (fluid surrounding the lungs).
 
                
 
-5.2 ALGORITHM USED :
+*5.2 ALGORITHM USED :
 
 5.2.1 Dataset Preprocessing:
 A function to label the images in the dataset based upon whether the person is normal or diagnosed with pneumonia. Normal patients have been labeled 0 Pneumonia diagnosed patients have been labeled 1. This function takes the dataset directory as an argument written to perform pre-processing on the image dataset which includes Image gray-scaling, Image resizing, Storing the grayscale values and labels in x and y variables. The function is essentially used to assign labels to the images depending on whether they are normal x rays or pneumonia x-rays, resize the image and store the images in the array X and the labels in the array y
